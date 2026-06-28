@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Styles.css">
+    <title>Matemáticas | Portafolio ITSE</title>
+</head>
+<body>
+    {{ nav }}
+
+    <main class="app-layout">
+        <section class="subject-hero accent-amber">
+            <div>
+                <p class="eyebrow">Materia</p>
+                <h1>Matemáticas</h1>
+                <p>Ejercicios, talleres y soluciones destacadas.</p>
+            </div>
+            <div class="subject-stat">
+                <strong>{{ count }}</strong>
+                <span>{{ count_word }}</span>
+            </div>
+        </section>
+
+        {{ flash }}
+
+        <section class="section-heading">
+            <div>
+                <p class="eyebrow">Galería</p>
+                <h2>Fotos de Matemáticas</h2>
+            </div>
+            <a class="button button-secondary" href="{{ upload_link }}">Subir foto</a>
+        </section>
+
+        {{ gallery }}
+    </main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Styles.css">
+    <title>Inglés | Portafolio ITSE</title>
+</head>
+<body>
+    {{ nav }}
+
+    <main class="app-layout">
+        <section class="subject-hero accent-teal">
+            <div>
+                <p class="eyebrow">Materia</p>
+                <h1>Inglés</h1>
+                <p>Evidencias, prácticas y proyectos de la materia.</p>
+            </div>
+            <div class="subject-stat">
+                <strong>{{ count }}</strong>
+                <span>{{ count_word }}</span>
+            </div>
+        </section>
+
+        {{ flash }}
+
+        <section class="section-heading">
+            <div>
+                <p class="eyebrow">Galería</p>
+                <h2>Fotos de Inglés</h2>
+            </div>
+            <a class="button button-secondary" href="{{ upload_link }}">Subir foto</a>
+        </section>
+
+        {{ gallery }}
+    </main>
+</body>
+</html>
