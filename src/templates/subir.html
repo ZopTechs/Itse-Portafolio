@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Styles.css">
+    <title>Subir foto | Portafolio ITSE</title>
+</head>
+<body>
+    {{ nav }}
+
+    <main class="app-layout narrow-layout">
+        <section class="page-title">
+            <p class="eyebrow">Nueva evidencia</p>
+            <h1>Subir foto</h1>
+        </section>
+
+        {{ flash }}
+
+        <form class="upload-form" action="/subir" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <label for="materia">Materia</label>
+                <select id="materia" name="materia" required>
+                    {{ options }}
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="titulo">Título</label>
+                <input id="titulo" name="titulo" type="text" maxlength="120" placeholder="Ejemplo: Taller de funciones">
+            </div>
+
+            <div class="form-row">
+                <label for="foto">Foto</label>
+                <input id="foto" name="foto" type="file" accept="image/png,image/jpeg,image/gif,image/webp" required>
+            </div>
+
+            <div class="preview-box" aria-live="polite">
+                <img id="preview" alt="">
+                <span id="previewText">Vista previa</span>
+            </div>
+
+            <button class="button button-primary" type="submit">Guardar foto</button>
+        </form>
+    </main>
+
+    <script>
+        const input = document.querySelector("#foto");
+        const preview = document.querySelector("#preview");
+        const previewText = document.querySelector("#previewText");
+
+        input.addEventListener("change", () => {
+            const file = input.files && input.files[0];
+            if (!file) {
+                preview.removeAttribute("src");
+                previewText.hidden = false;
+                return;
+            }
+            preview.src = URL.createObjectURL(file);
+            previewText.hidden = true;
+        });
+    </script>
+</body>
+</html>
